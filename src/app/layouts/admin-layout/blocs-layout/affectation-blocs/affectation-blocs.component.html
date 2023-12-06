@@ -1,7 +1,5 @@
-<!-- Display available foyers -->
 <div *ngFor="let foyer of availableFoyers">
     <p> {{ foyer.nomFoyer }} - {{ foyer.capaciteFoyer }}</p>
-    <!-- Add UI elements for the user to choose and confirm affectation -->
     <button type="button" class="btn btn-primary" (click)="affecterBlocAFoyer(foyer.idFoyer)">Affecter à ce foyer</button>
     <button type="button" class="btn btn-primary" (click)="goBack()">
         Retour à la liste des blocs

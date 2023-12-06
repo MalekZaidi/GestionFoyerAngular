@@ -17,7 +17,7 @@ export class AffectationBlocsComponent implements OnInit {
       this.idBloc = +paramMap.get('idBloc');
     });
 
-    // Call the service to get available foyers
+
     this.affectationService.getAvailableFoyers().subscribe(
       (data) => {
         this.availableFoyers = data;
@@ -30,14 +30,14 @@ export class AffectationBlocsComponent implements OnInit {
   }
 
   affecterBlocAFoyer(idFoyer: number): void {
-    // Call the service to affect the bloc to the selected foyer
+
     this.affectationService.affecterBlocAFoyer(this.idBloc, idFoyer).subscribe(
       () => {
         console.log('Bloc affected to foyer successfully.');
         
         setTimeout(() => {
           this.router.navigate(['/admin/blocs']);
-        }, 2000); // 3000 milliseconds (3 seconds) delay before navigation
+        }, 2000); 
       },
       (error) => {
         console.error('Error affecting bloc to foyer:', error);

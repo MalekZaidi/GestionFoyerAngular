@@ -1,10 +1,8 @@
-// ajouter-blocs.component.ts
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BlocService } from 'app/services/bloc-service.service';
-import { Bloc } from 'app/models/bloc'; // Import your Bloc model
+import { Bloc } from 'app/models/bloc'; 
 import { NgToastService } from 'ng-angular-popup';
 
 @Component({

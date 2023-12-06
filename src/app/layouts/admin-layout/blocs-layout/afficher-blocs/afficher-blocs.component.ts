@@ -1,4 +1,3 @@
-// afficher-blocs.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlocService } from 'app/services/bloc-service.service';

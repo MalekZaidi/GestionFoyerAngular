@@ -30,7 +30,7 @@ export class ModifierBlocsComponent implements OnInit {
     this.blocService.updateBloc(this.bloc).subscribe(
       () => {
         console.log('Bloc modifié avec succès.');
-        this.router.navigate(['/admin/blocs']); // Redirection vers la liste des blocs
+        this.router.navigate(['/admin/blocs']); 
       },
       (error) => {
         console.error('Erreur lors de la modification du bloc :', error);

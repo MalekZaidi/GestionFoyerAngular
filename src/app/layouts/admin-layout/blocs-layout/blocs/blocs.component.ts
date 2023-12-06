@@ -1,4 +1,3 @@
-// blocs.component.ts
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Bloc } from 'app/models/bloc';
@@ -13,7 +12,8 @@ export class BlocsComponent implements OnInit {
   blocs: Bloc[] = [];
   filteredBlocs: Bloc[] = [];
   searchTerm: string = '';
-
+  sortKey: string = '';  
+  reverse: boolean = false; 
   constructor(private router: Router, private blocService: BlocService, private cdRef: ChangeDetectorRef) {}
 
   ngOnInit() {
@@ -49,7 +49,7 @@ export class BlocsComponent implements OnInit {
     this.blocService.deleteBloc(id).subscribe(
       () => {
         console.log('Bloc deleted successfully.');
-        this.loadBlocs(); // Reload the blocs after deletion
+        this.loadBlocs(); 
       },
       (error) => {
         console.error('Error deleting bloc:', error);
@@ -59,7 +59,7 @@ export class BlocsComponent implements OnInit {
 
   affecterAFoyer(idBloc: number) {
     this.router.navigate(['/admin/blocs/affecterFoyer', idBloc]);
-    // Implement the logic to affect the bloc to a foyer here
+   
     // console.log(`Affecter le bloc ${idBloc} à un foyer.`);
   }
 
@@ -67,5 +67,41 @@ export class BlocsComponent implements OnInit {
     this.filteredBlocs = this.blocs.filter(bloc =>
       bloc.nomBloc.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+  sort(key: string) {
+    if (this.sortKey === key) {
+     
+      this.reverse = !this.reverse;
+    } else {
+     
+      this.sortKey = key;
+      this.reverse = false;
+    }
+
+    
+    this.filteredBlocs.sort((a, b) => {
+      const valueA = this.getPropertyValue(a, key);
+      const valueB = this.getPropertyValue(b, key);
+
+      if (valueA < valueB) {
+        return this.reverse ? 1 : -1;
+      } else if (valueA > valueB) {
+        return this.reverse ? -1 : 1;
+      } else {
+        return 0;
+      }
+    });
+  }
+
+ 
+  private getPropertyValue(obj: any, key: string): any {
+    const keys = key.split('.');
+    let value = obj;
+
+    for (const k of keys) {
+      value = value[k];
+    }
+
+    return value;
   }
 }
