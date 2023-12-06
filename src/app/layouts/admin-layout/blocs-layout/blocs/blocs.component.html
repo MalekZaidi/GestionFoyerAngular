@@ -1,0 +1,53 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="header" routerLinkActive="active">
+              <h4 class="title">Les blocs</h4>
+              <a routerLink="/admin/blocs/ajouter">
+                <h4>
+                  <i class="pe-7s-add-user"></i>
+                  Ajouter un nouveau bloc
+                </h4>
+              </a>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped" *ngIf="blocs && blocs.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Nom du Bloc</th>
+                            <th>Capacité</th>
+                            <th>Actions</th>
+                            <!-- Add a new header for the "Affecter à un foyer" action -->
+                            <th>Affecter à un foyer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let bloc of blocs">
+                            <td>{{ bloc?.nomBloc }}</td>
+                            <td>{{ bloc?.capaciteBloc }}</td>
+                            <td>
+                                <div class="center">
+                                    <button type="button" class="btn btn-success" (click)="updateBloc(bloc.idBloc)">Modifier</button>
+                                    <button type="button" class="btn btn-danger" (click)="deleteBloc(bloc.idBloc)">Supprimer</button>
+                                    <button type="button" class="btn btn-success" (click)="displayBlocs(bloc.idBloc)">Detail</button>
+                                </div>
+                            </td>
+                            <!-- Add a new column with a button for the "Affecter à un foyer" action -->
+                            <td>
+                                <div class="center">
+                                    <button type="button" class="btn btn-primary" (click)="affecterAFoyer(bloc.idBloc)">Affecter à un foyer</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="blocs && blocs.length === 0">Aucun bloc disponible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

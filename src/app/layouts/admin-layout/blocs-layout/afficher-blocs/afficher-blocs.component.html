@@ -1,0 +1,32 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Détails du Bloc</h4>
+          </div>
+          <div class="content">
+            <div *ngIf="bloc">
+              <h3>{{ bloc?.nomBloc }}</h3>
+              <p>Capacité: {{ bloc?.capaciteBloc }}</p>
+              <!-- Affichez d'autres détails du bloc ici -->
+            </div>
+            <div *ngIf="foyers && foyers.length > 0">
+              <h4>Foyers associés :</h4>
+              <ul>
+                <li *ngFor="let foyer of foyers">
+                  {{ foyer?.nomFoyer }} - {{ foyer?.capaciteFoyer }}
+                </li>
+              </ul>
+            </div>
+            <div *ngIf="!bloc && (!foyers || foyers.length === 0)">Aucun détail disponible.</div>
+            <button type="button" class="btn btn-primary" (click)="goBack()">
+              Retour à la liste des blocs
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
