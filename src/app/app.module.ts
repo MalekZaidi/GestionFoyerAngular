@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { NgToastModule } from 'ng-angular-popup' // to be added
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
@@ -28,6 +28,7 @@ import { AffectationBlocsComponent } from './layouts/admin-layout/blocs-layout/a
     AppRoutingModule,
     EtudiantLayoutModule,
     ReactiveFormsModule,
+    NgToastModule,
     AdminLayoutModule
   ],
   declarations: [

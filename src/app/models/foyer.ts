@@ -1,14 +1,14 @@
 import { Universite } from 'app/models/universite';
 import { Bloc } from 'app/models/bloc'; 
 
-export interface Foyer {
+export class Foyer {
     idFoyer: number;
     nomFoyer: string;
     capaciteFoyer: number;
     universite?: Universite; 
     blocs?: Bloc[]; 
   
-  getIdFoyer?(): number;
+  /*getIdFoyer?(): number;
   getNomFoyer(): string;
   getCapaciteFoyer(): number;
   getUniversite?(): Universite;
@@ -19,7 +19,7 @@ export interface Foyer {
   setNomFoyer(nomFoyer: string): void;
   setCapaciteFoyer(capaciteFoyer: number): void;
   setUniversite?(universite: Universite): void;
-  setBlocs?(blocs: Bloc[]): void;
+  setBlocs?(blocs: Bloc[]): void;*/
   }
   
  

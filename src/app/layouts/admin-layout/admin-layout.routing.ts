@@ -7,6 +7,8 @@ import { ModifierBlocsComponent } from './blocs-layout/modifier-blocs/modifier-b
 import { SupprimerBlocsComponent } from './blocs-layout/supprimer-blocs/supprimer-blocs.component';
 import { AjouterBlocsComponent } from './blocs-layout/ajouter-blocs/ajouter-blocs.component';
 import { AffectationBlocsComponent } from './blocs-layout/affectation-blocs/affectation-blocs.component';
+import {StatistiquesBlocsComponent} from 'app/layouts/admin-layout/blocs-layout/statistiques-blocs/statistiques-blocs.component';
+
 export const AdminLayoutRoutes: Routes = [
     { path: 'admin', component: HomeComponent },
     { path: 'blocs', component: BlocsComponent }, 
@@ -15,5 +17,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'blocs/supprimer', component: SupprimerBlocsComponent }, 
     { path: 'blocs/ajouter', component: AjouterBlocsComponent }, 
     { path :'blocs/affecterFoyer/:idBloc',component: AffectationBlocsComponent },
+    {path : 'blocs/statestique',component : StatistiquesBlocsComponent },
 
 ];
